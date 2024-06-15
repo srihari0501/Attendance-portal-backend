@@ -1,4 +1,3 @@
-// controllers/attendanceController.js
 const Attendance = require('../models/Attendance');
 
 exports.markAttendance = async (req, res) => {
@@ -8,8 +7,7 @@ exports.markAttendance = async (req, res) => {
             return res.status(401).json({ success: false, message: 'User not authorized' });
         }
 
-        const date = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
-
+        const date = new Date().toISOString().split('T')[0]; 
         const existingAttendance = await Attendance.findOne({ userId, date });
         if (existingAttendance) {
             return res.status(400).json({ success: false, message: 'Attendance already marked for today' });
