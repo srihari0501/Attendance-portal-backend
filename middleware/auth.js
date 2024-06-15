@@ -10,7 +10,8 @@ const verifyToken = async (req, res, next) => {
 
     try {
         const verified = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = verified.userId;
+        req.user = verified;
+        req.userId = verified.userId;
         console.log('Middleware - User ID:', req.user); 
         next();
     } catch (error) {
