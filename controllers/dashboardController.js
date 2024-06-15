@@ -17,6 +17,7 @@ exports.getUserData = async (req, res) => {
 exports.getAttendanceSummary = async (req, res) => {
     try {
         const userId = req.userId;
+        console.log('aauid' + userId);
         const attendanceSummary = await Attendance.find({ user: userId });
         res.status(200).json(attendanceSummary);
     } catch (error) {
