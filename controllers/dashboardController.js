@@ -15,7 +15,9 @@ exports.getUserData = async (req, res) => {
 exports.getAttendanceSummary = async (req, res) => {
     try {
         const userId = req.userId;
-        const attendanceSummary = await Attendance.findById(userId);
+        console.log("aa" + userId);
+        const attendanceSummary = await Attendance.find({ userId: userId });
+        console.log("ada" + userId);
         res.status(200).json(attendanceSummary);
     } catch (error) {
         console.error('Error fetching attendance summary:', error);
