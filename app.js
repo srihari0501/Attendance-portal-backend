@@ -22,7 +22,7 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/attendance', attendanceRoutes); // Use attendance routes
 app.use('/api/leave', leaveRoutes);
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/attendance', {
+mongoose.connect('mongodb+srv://sriharisukumaran05:JzNGDFOJrmlGMgSc@cluster.dohljgn.mongodb.net/attendance', {
 
 })
 .then(() => {
