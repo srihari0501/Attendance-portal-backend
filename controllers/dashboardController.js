@@ -5,8 +5,7 @@ exports.getUserData = async (req, res) => {
     try {
         const userId = req.userId;
         console.log('uid' + userId);
-        const userObjectId = mongoose.Types.ObjectId(userId);
-        const userData = await User.findById(userObjectId).populate('attendance').populate('leave');
+        const userData = await User.findById(userId).populate('attendance').populate('leave');
         console.log('userData id' + userData);
         res.status(200).json(userData);
     } catch (error) {
