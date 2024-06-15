@@ -4,8 +4,9 @@ const Attendance = require('../models/Attendance');
 exports.getUserData = async (req, res) => {
     try {
         const userId = req.userId;
+        console.log('uid' + userId);
         const userData = await User.find({ user: userId });
-
+        console.log('userData id' + userData);
         res.status(200).json(userData);
     } catch (error) {
         console.error('Error fetching user data:', error);
